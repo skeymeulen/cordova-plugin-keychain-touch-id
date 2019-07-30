@@ -122,5 +122,6 @@ if (window.plugins) {
         alert("Password key deleted");
     });
 }
+
 ```
 
