@@ -86,7 +86,13 @@ public class FingerprintAuthenticationDialogFragment extends DialogFragment
         int fingerprint_auth_dialog_title_id = getResources()
                 .getIdentifier("fingerprint_auth_dialog_title", "string",
                         FingerprintAuth.packageName);
-        getDialog().setTitle(getString(fingerprint_auth_dialog_title_id));
+        String title = "Fingerprint Authentication";
+        try {
+            title = getString(fingerprint_auth_dialog_title_id);
+        } catch (Resources.NotFoundException e) {
+            Log.e("FingerprintAuth", "Failed to find fingerprint dialog title");
+        }
+        getDialog().setTitle(title);
         int fingerprint_dialog_container_id = getResources()
                 .getIdentifier("fingerprint_dialog_container", "layout",
                         FingerprintAuth.packageName);
